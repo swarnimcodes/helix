@@ -1,6 +1,42 @@
+# Treesitter Grammars
+use-grammars = { only = [
+  "rust",
+  "c",
+  "cpp",
+  "java",
+  "git-ignore",
+  "go",
+  "gomod",
+  "gotmpl",
+  "javascript",
+  "typescript",
+  "jsx",
+  "tsx",
+  "make",
+  "markdown",
+  "html",
+  "ocaml",
+  "ocaml-interface",
+  "lua",
+  "haskell",
+  "json",
+  "yaml",
+  "toml",
+  "latex",
+  "bash",
+  "sql",
+  "gleam",
+] }
+
+
+[[language]]
+name = "toml"
+auto-format = true
+formatter = { command = "taplo", args = ["fmt", "-"] }
+
 [[language]]
 name = "c"
-language-servers = [ "clangd" ]
+language-servers = ["clangd"]
 formatter = { command = "clang-format", args = ["-"] }
 
 [[language]]
@@ -15,9 +51,9 @@ auto-format = true
 [[language]]
 name = "python"
 scope = "source.python"
-language-servers = [ "pylsp" ]
+language-servers = ["pylsp"]
 auto-format = true
-formatter = { command = "ruff", args = [ "format", "-" ] }
+formatter = { command = "ruff", args = ["format", "-"] }
 
 [language-server.pyright.config.python.analysis]
 typeCheckingMode = "strict"
@@ -28,7 +64,7 @@ mypy = { enabled = true, strict = true }
 autopep8 = { enabled = true }
 rope = { enabled = true }
 mccabe = { enabled = true }
-flake8 = {enabled = true, ignore = ["E501"]}
+flake8 = { enabled = true, ignore = ["E501"] }
 pycodestyle = { enabled = false }
 pyflakes = { enabled = false }
 pylint = { enabled = false }
@@ -40,7 +76,7 @@ ruff = { enabled = false }
 
 [[language]]
 name = "rust"
-language-servers = [{name="rust-analyzer"}]
+language-servers = [{ name = "rust-analyzer" }]
 
 
 # Web Development
@@ -49,13 +85,12 @@ command = "typescript-language-server"
 
 [[language]]
 name = "typescript"
-language-servers = [ { name="typescript-language-server" } ] 
-formatter = { command = "dprint", args = [ "fmt", "--stdin", "typescript" ] }
+language-servers = [{ name = "typescript-language-server" }]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "javascript"
-language-servers = [ { name="typescript-language-server" } ] 
-formatter = { command = "dprint", args = [ "fmt", "--stdin", "javascript" ] }
+language-servers = [{ name = "typescript-language-server" }]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "javascript"] }
 auto-format = true
-
