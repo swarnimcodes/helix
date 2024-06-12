@@ -1,0 +1,49 @@
+theme = "adwaita-dark"
+
+[editor]
+line-number = "relative"
+bufferline = "always"
+scrolloff = 5
+cursorline = true
+auto-format = true
+true-color = true
+# rulers = [80]
+auto-save = false
+auto-completion = true
+color-modes = true
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+skip-levels = 0
+character = "▏"
+
+[editor.lsp]
+enable = true
+display-messages = true
+snippets = true
+display-inlay-hints = false
+
+[editor.statusline]
+left = ["mode", "spinner", "spacer", "file-name"]
+center = []
+right = [ "version-control", "spacer", "diagnostics",  "selections", "position", "file-encoding",
+"file-line-ending", "file-type", "total-line-numbers", "register", "spacer" ]
+# separator = "▏"
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+
+### Experimentss
