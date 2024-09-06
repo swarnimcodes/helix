@@ -1,43 +1,56 @@
-# Treesitter Grammars
-use-grammars = { only = [
-  "rust",
-  "c",
-  "cpp",
-  "java",
-  "git-ignore",
-  "go",
-  "gomod",
-  "gotmpl",
-  "javascript",
-  "typescript",
-  "jsx",
-  "tsx",
-  "make",
-  "markdown",
-  "html",
-  "ocaml",
-  "ocaml-interface",
-  "lua",
-  "haskell",
-  "json",
-  "yaml",
-  "toml",
-  "latex",
-  "bash",
-  "sql",
-  "gleam",
-] }
+###########
+# Web Dev #
+###########
+[[language]]
+name = "html"
+language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
+auto-format = true
 
+[[language]]
+name = "css"
+language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+auto-format = true
+
+[[language]]
+name = "jsx"
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
+auto-format = true
+
+[[language]]
+name = "svelte"
+language-servers = ["svelteserver", "tailwindcss-ls"]
+auto-format = true
+
+[[lua]]
+name = "lua"
+formatter = { command = "stylua", args = ["-"] }
+auto-format = true
 
 [[language]]
 name = "toml"
 auto-format = true
 formatter = { command = "taplo", args = ["fmt", "-"] }
 
+[language-server.clangd]
+command = "clangd"
+
 [[language]]
 name = "c"
 language-servers = ["clangd"]
-formatter = { command = "clang-format", args = ["-"] }
+formatter = { command = "clang-format", args = ["--style=GNU", "-"] }
+auto-format = true
+
+[[language]]
+name = "cpp"
+language-servers = ["clangd"]
+formatter = { command = "clang-format", args = ["--style=GNU", "-"] }
+auto-format = true
+
 
 [[language]]
 name = "java"
@@ -51,25 +64,21 @@ auto-format = true
 [[language]]
 name = "python"
 scope = "source.python"
-language-servers = ["pylsp"]
+language-servers = ["pyright"]
 auto-format = true
 formatter = { command = "ruff", args = ["format", "-"] }
 
-[language-server.pyright.config.python.analysis]
-typeCheckingMode = "strict"
-
-
-[language-server.pylsp.config.pylsp.plugins]
-mypy = { enabled = true, strict = true }
-autopep8 = { enabled = true }
-rope = { enabled = true }
-mccabe = { enabled = true }
-flake8 = { enabled = true, ignore = ["E501"] }
-pycodestyle = { enabled = false }
-pyflakes = { enabled = false }
-pylint = { enabled = false }
-yapf = { enabled = false }
-ruff = { enabled = false }
+# [language-server.pylsp.config.pylsp.plugins]
+# mypy = { enabled = true, strict = true }
+# autopep8 = { enabled = true }
+# rope = { enabled = true }
+# mccabe = { enabled = true }
+# flake8 = { enabled = true, ignore = ["E501"] }
+# pycodestyle = { enabled = false }
+# pyflakes = { enabled = false }
+# pylint = { enabled = false }
+# yapf = { enabled = false }
+# ruff = { enabled = false }
 
 ###############################################
 
